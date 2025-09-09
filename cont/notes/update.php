@@ -13,8 +13,9 @@ $note = $db->query('select * from notes where id=:id',[
 
 authoize($note['id_user'] == $curruserid);
 
+$errore = [];
 
-if(! valuded::string($_POST['body'],1,1000)){
+if(! valuded::string($_POST['body'],1,10)){
     $errore['body'] = 'A body is required';
 }
 
@@ -31,5 +32,5 @@ if(count($errore)){
         'id' => $_POST['id']
     ]);
 
-    header('location: index.php');
+    header('location: /php/notes');
     die();

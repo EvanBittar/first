@@ -3,6 +3,7 @@
 const BASE__PATH = __DIR__ . "/../";
 require BASE__PATH .  'core/function.php';
 
+session_start();
 
 spl_autoload_register(function ($class){
 

@@ -3,7 +3,7 @@
 <?php require (__DIR__ . '/../partlials/bannner.php'); ?>
 <main>
 <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-<form method="POST"  >
+<form method="POST" >
     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div class="col-span-full">
         <label for="body" class="block text-sm/6 font-medium text-gray-900">Body</label>
