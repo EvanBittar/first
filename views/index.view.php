@@ -4,7 +4,9 @@
 
 <main>
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        this is the home page
+        hallo <?=
+        // dd($_SESSION);
+        $_SESSION['user']['email']  ?? 'Guest' ?> this is the home page
     </div>
 </main>
 

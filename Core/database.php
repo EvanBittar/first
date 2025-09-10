@@ -22,10 +22,14 @@ class database{
 public function fetchAll(){
     return $this->statmant->fetchAll();
 }
-public function findOrFales(){
-    if($this->statmant)
+public function find(){
     return $this->statmant->fetch();
-    else
-    return abort();
+}
+
+public function findOrFales(){
+    $result = $this->statmant->fetch();
+    if(!$result){
+        return abort();
+    }
 }
 }

@@ -9,20 +9,24 @@
 //     '/php/notes/create' => 'cont/notes/create.php',
 //     '/php/contact' => 'cont/contact.php',
 // ];
-$router->get('/php/','cont/index.php');
-$router->get('/php/about','cont/about.php');
-$router->get('/php/contact','cont/contact.php');
+$router->get('/php/','index.php');
+$router->get('/php/about','about.php');
+$router->get('/php/contact','contact.php');
 
-$router->get('/php/notes','cont/notes/index.php');
+$router->get('/php/notes','notes/index.php')->only('auth');
 
-$router->get('/php/show','cont/notes/show.php');
-$router->delete('/php/show','cont/notes/destroy.php'); # /php/notes/edit
+$router->get('/php/show','notes/show.php');
+$router->delete('/php/show','notes/destroy.php');
 
-$router->get('/php/notes/edit','cont/notes/edit.php');
-$router->patch('/php/notes/edit','cont/notes/update.php');
+$router->get('/php/notes/edit','notes/edit.php');
+$router->patch('/php/notes/edit','notes/update.php');
 
-$router->get('/php/notes/create','cont/notes/create.php');
-$router->post('/php/notes/create','cont/notes/store.php');
+$router->get('/php/notes/create','notes/create.php');
+$router->post('/php/notes/create','notes/store.php');
 
-$router->get('/php/register','cont/registertion/create.php');
-$router->post('/php/register','cont/registertion/store.php');
+$router->get('/php/register','registertion/create.php')->only('guest');
+$router->post('/php/register','registertion/store.php');
+
+$router->get('/php/login','login/create.php')->only('guest');
+$router->post('/php/login','login/store.php')->only('guest');
+$router->delete('/php/login','login/delete.php')->only('auth');

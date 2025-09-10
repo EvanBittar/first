@@ -10,7 +10,9 @@
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <a href="/php/" class=" <?= UrlIs('/php/')? "bg-gray-900 text-white" : "text-gray-300" ?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" >Home</a>
                 <a href="/php/about" class="  <?= UrlIs('/php/cont/about.php')? "bg-gray-900 text-white" : "text-gray-300" ?> rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
+                <?php if($_SESSION['user'] ?? false) : ?>
                 <a href="/php/notes" class="  <?= UrlIs('/php/cont/notes/index.php')? "bg-gray-900 text-white" : "text-gray-300" ?> rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Notes</a>
+                <?php endif; ?>
                 <a href="/php/contact" class="  <?= UrlIs('/php/cont/contact.php')? "bg-gray-900 text-white" : "text-gray-300" ?> rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">contact</a>
                 </div>
             </div>
@@ -36,19 +38,16 @@
                     </button>
                 </div>
                     <?php else : ?>
-                        <a href="register" class="text-white">register</a>
+                        <a href="register" class=" <?= UrlIs('/php/register')? "bg-gray-900 text-white" : "text-gray-300" ?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" >register</a>
+                        <a href="login" class=" <?= UrlIs('/php/login')? "bg-gray-900 text-white" : "text-gray-300" ?>rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white" >log in</a>        
                     <?php endif; ?>
-                <!--
-                    Dropdown menu, show/hide based on menu state.
-
-                    Entering: "transition ease-out duration-100"
-                    From: "transform opacity-0 scale-95"
-                    To: "transform opacity-100 scale-100"
-                    Leaving: "transition ease-in duration-75"
-                    From: "transform opacity-100 scale-100"
-                    To: "transform opacity-0 scale-95"
-                -->
                 </div>
+                <?php if($_SESSION['user'] ?? false) : ?>
+                <form method="POST" class="ml-3" action="/php/login">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="text-white ">log out</button>
+                </form>
+                <?php endif; ?>
             </div>
             </div>
             <div class="-mr-2 flex md:hidden">

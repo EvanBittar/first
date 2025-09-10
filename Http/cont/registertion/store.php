@@ -1,8 +1,8 @@
 <?php
 
+use Core\Valuded;
 use Core\App;
 use Core\database;
-use Core\Valuded;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -36,12 +36,13 @@ if ($result){
     $db->query("INSERT INTO user(email,password) VALUES
 (:email,:password);",[
     'email'=>$email,
-    'password'=>$password
+    'password'=> password_hash($password, PASSWORD_BCRYPT)
 ]);
 
-$_SESSION['user']=[
+login([
     'email'=>$email,
-];
+]);
+
     header("location: /php/");
     die();
 }
