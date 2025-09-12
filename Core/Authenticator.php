@@ -1,6 +1,7 @@
 <?php
 namespace Core;
 
+use Core\Session;
 class Authenticator
 {
 public function auth($email,$password){
