@@ -43,3 +43,6 @@ function redirect($path){
     header("location: {$path}");
     exit();
 }
+function old($key,$default=''){
+    return $_SESSION['_flash'][$key] ?? $default;
+}
