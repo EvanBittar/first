@@ -14,7 +14,6 @@ class router{
             'method'=> $method,
             'middleware'=> null
         ];
-
         return $this;
     
     }
